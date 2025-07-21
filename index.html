@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ralph Xpert - Accueil</title>
+  <style>
+    /* Reset basique */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #121212;
+      color: #eee;
+      line-height: 1.6;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+    a {
+      color: #00cc66;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: #111;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #00cc66;
+      z-index: 1000;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #00cc66;
+      letter-spacing: 2px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li {
+      font-weight: 600;
+    }
+    nav ul li a {
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: #55ee99;
+    }
+
+    /* Hero Section */
+    .hero {
+      margin: 40px 0;
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #006633, #00cc66);
+      border-radius: 12px;
+      box-shadow: 0 8px 15px rgba(0, 204, 102, 0.4);
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #eefbee;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+    .hero .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      background: #004d26;
+      color: #d4f7d4;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 77, 38, 0.5);
+      text-transform: uppercase;
+    }
+    .btn:hover {
+      background: #00cc66;
+      box-shadow: 0 6px 12px rgba(0, 204, 102, 0.7);
+    }
+
+    /* Section Titles */
+    h2.section-title {
+      text-align: center;
+      margin: 60px 0 30px;
+      color: #00cc66;
+      font-size: 2rem;
+      letter-spacing: 1.5px;
+    }
+
+    /* Portfolio Preview */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .portfolio-item {
+      background: #1c1c1c;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+    }
+    .portfolio-item .info {
+      padding: 15px;
+      color: #aaffaa;
+    }
+    .portfolio-item .info h3 {
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+    .portfolio-item .info p {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    .portfolio-item .btn-small {
+      background: #00cc66;
+      color: #111;
+      border-radius: 20px;
+      padding: 8px 18px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      margin-top: 12px;
+      display: inline-block;
+      text-transform: uppercase;
+      transition: background 0.3s ease;
+    }
+    .portfolio-item .btn-small:hover {
+      background: #009944;
+      color: #eee;
+    }
+
+    /* Shop Preview */
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .product-item {
+      background: #1c1c1c;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+      text-align: center;
+      padding-bottom: 15px;
+    }
+    .product-item:hover {
+      transform: translateY(-5px);
+    }
+    .product-item img {
+      width: 100%;
+      height: 140px;
+      object-fit: contain;
+      background: #222;
+      padding: 10px;
+    }
+    .product-item h4 {
+      margin: 10px 0 6px;
+      color: #aaffaa;
+      font-size: 1.1rem;
+    }
+    .product-item p.price {
+      color: #00cc66;
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+    .product-item button {
+      background: #00cc66;
+      border: none;
+      color: #111;
+      font-weight: 700;
+      padding: 10px 25px;
+      border-radius: 30px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: background 0.3s ease;
+    }
+    .product-item button:hover {
+      background: #009944;
+      color: #eee;
+    }
+
+    /* Mission / Inspiration */
+    .mission {
+      background: #111;
+      padding: 30px 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 12px rgba(0, 204, 102, 0.3);
+      margin: 60px 0;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #aaffaa;
+    }
+    .mission blockquote {
+      font-style: italic;
+      border-left: 5px solid #00cc66;
+      padding-left: 20px;
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+
+    /* FAQ Section */
+    .faq {
+      max-width: 800px;
+      margin: 0 auto 60px;
+    }
+    .faq h2 {
+      margin-bottom: 30px;
+    }
+    .faq-item {
+      background: #1c1c1c;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .faq-item:hover {
+      background: #222;
+    }
+    .faq-item h3 {
+      font-size: 1.1rem;
+      color: #00cc66;
+    }
+    .faq-item p {
+      margin-top: 10px;
+      color: #ccc;
+      display: none;
+      font-size: 1rem;
+    }
+    .faq-item.active p {
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      background: #111;
+      padding: 20px;
+      text-align: center;
+      color: #555;
+      font-size: 0.9rem;
+      border-top: 2px solid #00cc66;
+      margin-top: 40px;
+    }
+    footer a {
+      color: #00cc66;
+      margin: 0 8px;
+      font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .btn-group {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">RALPH XPERT</div>
+  <nav>
+    <ul>
+      <li><a href="#hero">Accueil</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#shop">Boutik</a></li>
+      <li><a href="#contact">Kontak</a></li>
+      <li><a href="#admin">Admin</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="hero">
+  <h1>🎉 Bienvenue sur la plateforme Ralph Xpert</h1>
+  <p>
+    Ralph Xpert est bien plus qu’une simple plateforme : c’est ton tremplin pour grandir, développer tes compétences, et te faire briller sur tous les réseaux sociaux.<br />
+    Ici, tu as l’opportunité unique d’évoluer, de révéler ton potentiel, et de bâtir un avenir prometteur dans le digital.
+  </p>
+  <div class="btn-group">
+    <button class="btn" onclick="scrollToSection('portfolio')">Dekouvri Portfolio</button>
+    <button class="btn" onclick="scrollToSection('shop')">Vizite Boutik</button>
+  </div>
+</section>
+
+<section id="portfolio">
+  <h2 class="section-title">Portfolio Preview</h2>
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/400x150?text=Projet+1" alt="Projet 1" />
+      <div class="info">
+        <h3>Projet Design Graphique</h3>
+        <p>Création d’une identité visuelle professionnelle pour un client.</p>
+        <button class="btn-small">Gade plis</button>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/400x150?text=Projet+2" alt="Projet 2" />
+      <div class="info">
+        <h3>Application Mobile</h3>
+        <p>Développement d’une application mobile intuitive pour Android et iOS.</p>
+        <button class="btn-small">Gade plis</button>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/400x150?text=Projet+3" alt="Projet 3" />
+      <div class="info">
+        <h3>Site Web Personnalisé</h3>
+        <p>Création d’un site web moderne et responsive pour un commerce local.</p>
+        <button class="btn-small">Gade plis</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="shop">
+  <h2 class="section-title">Boutik Preview</h2>
+  <div class="shop-grid">
+    <div class="product-item">
+      <img src="https://via.placeholder.com/300x140?text=Produit+1" alt="Produit 1" />
+      <h4>Formation Déblocage Téléphone</h4>
+      <p class="price">50 €</p>
+      <button>Ajoute nan panyen</button>
+    </div>
+    <div class="product-item">
+      <img src="https://via.placeholder.com/300x140?text=Produit+2" alt="Produit 2" />
+      <h4>Pack Design Graphique</h4>
+      <p class="price">75 €</p>
+      <button>Ajoute nan panyen</button>
+    </div>
+    <div class="product-item">
+      <img src="https://via.placeholder.com/300x140?text=Produit+3" alt="Produit 3" />
+      <h4>Tutoriel Vidéo Développement</h4>
+      <p class="price">30 €</p>
+      <button>Ajoute nan panyen</button>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top: 20px;">
+    <button class="btn" onclick="scrollToSection('shop')">Ale nan Boutik la</button>
+  </div>
+</section>
+
+<section class="mission">
+  <h2 class="section-title">Nouvo Misyon nou</h2>
+  <p>
+    Ralph Xpert est dédié à :<br />
+    - Te former dans l’informatique, avec un focus sur le déblocage de téléphones et les technologies innovantes.<br />
+    - T’accompagner à progresser quel que soit ton niveau.<br />
+    - Te donner les clés pour maîtriser le design graphique et d’autres domaines du digital.<br />
+  </p>
+  <blockquote>
+    Ta réussite dépend des choix que tu fais.<br />
+    Apprends à distinguer ce dont tu as besoin de ce que tu aimes.<br />
+    En alliant passion et discipline, tu construis ton avenir.
+  </blockquote>
+</section>
+
+<section class="faq" id="faq">
+  <h2 class="section-title">Kesyon Fréquentes (FAQ)</h2>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <h3>1. Comment puis-je m'inscrire à une formation ?</h3>
+    <p>Tu peux t'inscrire via la boutique en ligne en ajoutant la formation à ton panier et en procédant au paiement.</p>
+  </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <h3>2. Quels modes de paiement acceptez-vous ?</h3>
+    <p>Nous acceptons les paiements par carte bancaire, PayPal et virement bancaire.</p>
+  </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <h3>3. Puis-je obtenir un remboursement ?</h3>
+    <p>Oui, un remboursement est possible sous 14 jours suivant l'achat, selon nos conditions générales.</p>
+  </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <h3>4. Proposez-vous un support après formation ?</h3>
+    <p>Oui, tu bénéficies d'un support en ligne via notre plateforme pour toutes tes questions.</p>
+  </div>
+</section>
+
+<footer id="contact">
+  <p>© 2025 Ralph Xpert - Tous droits réservés</p>
+  <p>
+    Contactez-nous : <a href="mailto:contact@ralphxpert.com">contact@ralphxpert.com</a> |  
+    Suivez-nous: 
+    <a href="#" target="_blank" rel="noopener">Facebook</a> - 
+    <a href="#" target="_blank" rel="noopener">Instagram</a> - 
+    <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+  </p>
+</footer>
+
+<script>
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if(el) {
+      el.scrollIntoView({behavior: 'smooth'});
+    }
+  }
+  function toggleFaq(element) {
+    element.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>
