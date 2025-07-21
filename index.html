@@ -5,18 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ralph Xpert - Accueil</title>
   <style>
-    /* Reset basique */
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #121212;
       color: #eee;
-      line-height: 1.6;
-      max-width: 1000px;
-      margin: 0 auto;
       padding: 70px 20px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.6;
     }
     a {
       color: #00cc66;
@@ -25,15 +21,25 @@
     a:hover {
       text-decoration: underline;
     }
-    /* Header fixe si besoin (non utilisé ici) */
-    /* Hero Section */
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 0;
+      margin-bottom: 40px;
+    }
+    nav ul li a {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
     .hero {
-      margin: 40px 0;
       text-align: center;
       padding: 40px 20px;
       background: linear-gradient(135deg, #006633, #00cc66);
       border-radius: 12px;
       box-shadow: 0 8px 15px rgba(0, 204, 102, 0.4);
+      margin-bottom: 60px;
     }
     .hero h1 {
       font-size: 2.5rem;
@@ -42,303 +48,52 @@
     }
     .hero p {
       font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto 30px;
+      max-width: 600px;
+      margin: 0 auto;
     }
-    /* Section Titles */
-    h2.section-title {
-      text-align: center;
-      margin: 60px 0 30px;
-      color: #00cc66;
-      font-size: 2rem;
-      letter-spacing: 1.5px;
-    }
-    /* Portfolio Grid */
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .portfolio-item {
-      background: #1c1c1c;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease;
-    }
-    .portfolio-item:hover {
-      transform: translateY(-5px);
-    }
-    .portfolio-item img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      display: block;
-    }
-    .portfolio-item .info {
-      padding: 15px;
-      color: #aaffaa;
-    }
-    .portfolio-item .info h3 {
-      margin-bottom: 8px;
-      font-size: 1.2rem;
-    }
-    .portfolio-item .info p {
-      font-size: 0.9rem;
-      color: #ccc;
-    }
-    /* Shop Preview */
-    .shop-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-    }
-    .product-item {
-      background: #1c1c1c;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease;
-      text-align: center;
-      padding-bottom: 15px;
-    }
-    .product-item:hover {
-      transform: translateY(-5px);
-    }
-    .product-item img {
-      width: 100%;
-      height: 140px;
-      object-fit: contain;
-      background: #222;
-      padding: 10px;
-    }
-    .product-item h4 {
-      margin: 10px 0 6px;
-      color: #aaffaa;
-      font-size: 1.1rem;
-    }
-    .product-item p.price {
-      color: #00cc66;
-      font-weight: 700;
-      margin-bottom: 10px;
-      font-size: 1.1rem;
-    }
-    .product-item button {
-      background: #00cc66;
-      border: none;
-      color: #111;
-      font-weight: 700;
-      padding: 10px 25px;
-      border-radius: 30px;
-      cursor: pointer;
-      text-transform: uppercase;
-      transition: background 0.3s ease;
-    }
-    .product-item button:hover {
-      background: #009944;
-      color: #eee;
-    }
-    /* FAQ Section */
-    .faq {
-      max-width: 800px;
-      margin: 0 auto 60px;
-    }
-    .faq-item {
-      background: #1c1c1c;
-      border-radius: 12px;
-      margin-bottom: 15px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .faq-item:hover {
-      background: #222;
-    }
-    .faq-item h3 {
-      font-size: 1.1rem;
-      color: #00cc66;
-    }
-    .faq-item p {
-      margin-top: 10px;
-      color: #ccc;
-      display: none;
-      font-size: 1rem;
-    }
-    .faq-item.active p {
-      display: block;
-    }
-    /* Footer */
     footer {
       background: #111;
       color: #aaa;
       padding: 20px 30px;
       text-align: center;
       border-top: 1px solid #00cc66;
+      font-size: 0.9rem;
       margin-top: 60px;
-      font-size: 0.9rem;
     }
-    .footer-nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 0;
-      margin-bottom: 15px;
-    }
-    .footer-nav ul li a {
+    footer a {
       color: #00cc66;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
-    .footer-nav ul li a:hover {
-      color: #55ee99;
-      text-decoration: underline;
-    }
-    .footer-info p {
-      margin: 5px 0;
-      font-size: 0.9rem;
-    }
-    /* Responsive */
-    @media (max-width: 600px) {
-      .footer-nav ul {
-        flex-direction: column;
-        gap: 15px;
-      }
-      .portfolio-grid, .shop-grid {
-        grid-template-columns: 1fr;
-      }
+      margin: 0 8px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero / Bienvenue -->
-  <section class="hero" id="accueil">
+  <nav>
+    <ul>
+      <li><a href="accueil.html">Accueil</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="boutik.html">Boutik</a></li>
+      <li><a href="contact.html">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
     <h1>🎉 Bienvenue sur la plateforme Ralph Xpert</h1>
     <p>
       Ralph Xpert est une plateforme conçue pour t’aider à grandir, développer tes compétences et te valoriser sur tous les réseaux sociaux.<br />
       Ce n’est pas juste une plateforme — c’est une opportunité d’évoluer et d’exploiter tout ton potentiel.
     </p>
-    <p><strong>Objectifs :</strong></p>
-    <ul style="max-width: 500px; margin: auto; text-align: left; color: #c2f0c2;">
-      <li>Te former dans le domaine de l’informatique, notamment le déblocage de téléphones.</li>
-      <li>T’aider à progresser dans le secteur technologique, quel que soit ton niveau.</li>
-      <li>Te permettre de devenir un spécialiste en design graphique et dans d'autres domaines liés au digital.</li>
-    </ul>
-    <blockquote style="color:#aaffaa; font-style: italic; margin-top: 30px; max-width: 600px; margin-left:auto; margin-right:auto;">
-      "Ta réussite dépend des choix que tu fais dans la vie. Apprends à faire la différence entre ce dont tu as besoin et ce que tu aimes. En alliant passion et discipline, tu construis ton avenir."
-    </blockquote>
   </section>
 
-  <!-- Portfolio -->
-  <section id="portfolio">
-    <h2 class="section-title">Portfolio</h2>
-    <div class="portfolio-grid">
-      <div class="portfolio-item">
-        <img src="https://via.placeholder.com/300x150?text=Projet+1" alt="Projet 1" />
-        <div class="info">
-          <h3>Projet 1</h3>
-          <p>Développement d'une application mobile pour client X.</p>
-          <button class="btn-small">Voir plus</button>
-        </div>
-      </div>
-      <div class="portfolio-item">
-        <img src="https://via.placeholder.com/300x150?text=Projet+2" alt="Projet 2" />
-        <div class="info">
-          <h3>Projet 2</h3>
-          <p>Création d’un site web e-commerce moderne.</p>
-          <button class="btn-small">Voir plus</button>
-        </div>
-      </div>
-      <div class="portfolio-item">
-        <img src="https://via.placeholder.com/300x150?text=Projet+3" alt="Projet 3" />
-        <div class="info">
-          <h3>Projet 3</h3>
-          <p>Design graphique pour campagne publicitaire.</p>
-          <button class="btn-small">Voir plus</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Boutik Preview -->
-  <section id="boutik">
-    <h2 class="section-title">Boutik</h2>
-    <div class="shop-grid">
-      <div class="product-item">
-        <img src="https://via.placeholder.com/200x140?text=Produit+1" alt="Produit 1" />
-        <h4>T-shirt Ralph Xpert</h4>
-        <p class="price">15 €</p>
-        <button>Achte kounye a</button>
-      </div>
-      <div class="product-item">
-        <img src="https://via.placeholder.com/200x140?text=Produit+2" alt="Produit 2" />
-        <h4>Casquette Ralph Xpert</h4>
-        <p class="price">10 €</p>
-        <button>Achte kounye a</button>
-      </div>
-      <div class="product-item">
-        <img src="https://via.placeholder.com/200x140?text=Produit+3" alt="Produit 3" />
-        <h4>Sticker Ralph Xpert</h4>
-        <p class="price">5 €</p>
-        <button>Achte kounye a</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="faq">
-    <h2 class="section-title">FAQ</h2>
-
-    <div class="faq-item" onclick="this.classList.toggle('active')">
-      <h3>Comment puis-je apprendre le déblocage de téléphones ?</h3>
-      <p>Nous proposons des formations détaillées et tutoriels vidéo sur notre plateforme pour maîtriser le déblocage.</p>
-    </div>
-
-    <div class="faq-item" onclick="this.classList.toggle('active')">
-      <h3>Quels sont les moyens de paiement acceptés dans la boutique ?</h3>
-      <p>Nous acceptons PayPal, cartes bancaires, et virements.</p>
-    </div>
-
-    <div class="faq-item" onclick="this.classList.toggle('active')">
-      <h3>Puis-je obtenir un support technique personnalisé ?</h3>
-      <p>Oui, nous offrons un support dédié via email et chat pour nos membres premium.</p>
-    </div>
-
-  </section>
-
-  <!-- Footer -->
   <footer>
-    <nav class="footer-nav">
-      <ul>
-        <li><a href="accueil.html">Accueil</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="boutik.html">Boutik</a></li>
-        <li><a href="contact.html">Kontak</a></li>
-      </ul>
-    </nav>
-    <div class="footer-info">
-      <p>© 2025 Ralph Xpert. Tous droits réservés.</p>
-      <p>
-        <a href="#">Conditions d'utilisation</a> | 
-        <a href="#">Politique de confidentialité</a> | 
-        <a href="#">Aide</a>
-      </p>
-      <p>Conçu avec ❤️ par Ralph Xpert</p>
-    </div>
+    <p>© 2025 Ralph Xpert. Tous droits réservés.</p>
+    <p>
+      <a href="#">Conditions d'utilisation</a> | 
+      <a href="#">Politique de confidentialité</a> | 
+      <a href="#">Aide</a>
+    </p>
+    <p>Conçu avec ❤️ par Ralph Xpert</p>
   </footer>
 
-  <script>
-    // JS pou FAQ toggle (ouvri/fèmen repons)
-    document.querySelectorAll('.faq-item').forEach(item => {
-      item.addEventListener('click', () => {
-        item.classList.toggle('active');
-      });
-    });
-  </script>
-
 </body>
-  </html>
+</html>
