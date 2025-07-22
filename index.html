@@ -78,6 +78,8 @@
       text-decoration: none;
       margin-top: 20px;
       box-shadow: 0 4px 6px rgba(0, 204, 102, 0.4);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
     .btn:hover {
       background-color: #009944;
@@ -95,6 +97,56 @@
     footer a {
       color: #00cc66;
       margin: 0 8px;
+    }
+
+    /* FAQ styles */
+    .faq-grid {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0;
+    }
+    .faq-item {
+      background: #1c1c1c;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      padding: 15px 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    .faq-item:hover {
+      background-color: #222;
+    }
+    .faq-item h3 {
+      color: #00cc66;
+      font-size: 1.1rem;
+      margin: 0;
+      padding-right: 30px;
+    }
+    .faq-item::after {
+      content: "↓";
+      position: absolute;
+      right: 20px;
+      top: 18px;
+      font-size: 1.2rem;
+      color: #00cc66;
+      transition: transform 0.3s ease;
+    }
+    .faq-item.active::after {
+      content: "↑";
+      transform: rotate(180deg);
+    }
+    .faq-item p {
+      margin-top: 10px;
+      color: #ccc;
+      display: none;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .faq-item.active p {
+      display: block;
     }
   </style>
 </head>
@@ -139,34 +191,36 @@
     </ul>
   </section>
 
+  <!-- FAQ Section -->
   <section class="faq" id="faq">
-  <h2 class="section-title">Kesyon Fréquentes (FAQ)</h2>
-  <div class="faq-grid">
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <h3>1. Kijan pou mwen enskri nan yon fòmasyon?</h3>
-      <p>Ou kapab achte fòmasyon an nan seksyon boutik la epi swiv etap peman yo.</p>
+    <h2>Questions Fréquentes (FAQ)</h2>
+    <div class="faq-grid">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <h3>1. Comment puis-je m'inscrire à une formation ?</h3>
+        <p>Tu peux t'inscrire via la boutique en ligne en ajoutant la formation à ton panier et en procédant au paiement.</p>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <h3>2. Quels modes de paiement acceptez-vous ?</h3>
+        <p>Nous acceptons les paiements par carte bancaire, PayPal et virement bancaire.</p>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <h3>3. Puis-je obtenir un remboursement ?</h3>
+        <p>Oui, un remboursement est possible sous 14 jours suivant l'achat, selon nos conditions générales.</p>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <h3>4. Proposez-vous un support après formation ?</h3>
+        <p>Oui, tu bénéficies d'un support en ligne via notre plateforme pour toutes tes questions.</p>
+      </div>
     </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <h3>2. Ki mwayen peman nou aksepte?</h3>
-      <p>Nou aksepte kat kredi, PayPal ak transfè labank.</p>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <h3>3. Eske mwen ka jwenn ranbousman?</h3>
-      <p>Wi, ou ka mande ranbousman nan 14 jou apre achte, dapre kondisyon nou yo.</p>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <h3>4. Eske gen sipò apre fòmasyon an?</h3>
-      <p>Wi, nou bay sipò sou entènèt pou elèv yo apre fòmasyon.</p>
-    </div>
-  </div>
   </section>
-  <!-- Appel à l'action -->
+
+  <!-- Call to action -->
   <section style="text-align: center;">
     <h2>🚀 Prêt à transformer ta présence en ligne ?</h2>
     <a href="contact.html" class="btn">Contactez-nous dès aujourd'hui</a>
   </section>
 
-  <!-- Scroll to top -->
+  <!-- Scroll to top button -->
   <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
     style="position: fixed; bottom: 30px; right: 30px; background-color: #00cc66; color: #111; padding: 10px 15px; border: none; border-radius: 50px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); font-weight: bold;">
     ⬆️
@@ -182,6 +236,12 @@
     </p>
     <p>Conçu avec ❤️ par Ralph Xpert</p>
   </footer>
+
+  <script>
+    function toggleFaq(element) {
+      element.classList.toggle('active');
+    }
+  </script>
 
 </body>
 </html>
