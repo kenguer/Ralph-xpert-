@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio - Ralph Xpert</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #121212;
+      color: #eee;
+      padding: 70px 20px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 0;
+      margin-bottom: 40px;
+    }
+    nav ul li a {
+      color: #00cc66;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+    h1 {
+      text-align: center;
+      color: #00cc66;
+      margin-bottom: 40px;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 20px;
+    }
+    .portfolio-item {
+      background: #1c1c1c;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+    }
+    .portfolio-item .info {
+      padding: 15px;
+      color: #aaffaa;
+    }
+    .portfolio-item .info h3 {
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+    .portfolio-item .info p {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    footer {
+      background: #111;
+      color: #aaa;
+      padding: 20px 30px;
+      text-align: center;
+      border-top: 1px solid #00cc66;
+      font-size: 0.9rem;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="accueil.html">Accueil</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="boutik.html">Boutik</a></li>
+      <li><a href="contact.html">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <h1>Portfolio</h1>
+
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/300x150?text=Projet+1" alt="Projet 1" />
+      <div class="info">
+        <h3>Projet 1</h3>
+        <p>Développement d'une application mobile pour client X.</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/300x150?text=Projet+2" alt="Projet 2" />
+      <div class="info">
+        <h3>Projet 2</h3>
+        <p>Création d’un site web e-commerce moderne.</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/300x150?text=Projet+3" alt="Projet 3" />
+      <div class="info">
+        <h3>Projet 3</h3>
+        <p>Design graphique pour campagne publicitaire.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Ralph Xpert. Tous droits réservés.</p>
+    <p>
+      <a href="#">Conditions d'utilisation</a> | 
+      <a href="#">Politique de confidentialité</a> | 
+      <a href="#">Aide</a>
+    </p>
+    <p>Conçu avec ❤️ par Ralph Xpert</p>
+  </footer>
+
+</body>
+</html>
