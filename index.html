@@ -14,24 +14,31 @@
       margin: 0 auto;
       line-height: 1.6;
     }
-    a {
-      color: #00cc66;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
     nav ul {
       list-style: none;
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 15px;
       padding: 0;
       margin-bottom: 40px;
     }
     nav ul li a {
-      font-weight: 600;
-      font-size: 1.1rem;
+      display: inline-block;
+      padding: 10px 25px;
+      background-color: #00cc66;
+      color: #111;
+      font-weight: 700;
+      border-radius: 30px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 204, 102, 0.6);
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+      background-color: #009944;
+      color: #eee;
+      box-shadow: 0 6px 12px rgba(0, 153, 68, 0.8);
     }
     .hero {
       text-align: center;
@@ -51,6 +58,31 @@
       max-width: 600px;
       margin: 0 auto;
     }
+    section {
+      margin-bottom: 50px;
+    }
+    h2 {
+      color: #00cc66;
+      margin-bottom: 15px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #00cc66;
+      color: #111;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      margin-top: 20px;
+      box-shadow: 0 4px 6px rgba(0, 204, 102, 0.4);
+    }
+    .btn:hover {
+      background-color: #009944;
+      color: #fff;
+    }
     footer {
       background: #111;
       color: #aaa;
@@ -68,8 +100,17 @@
 </head>
 <body>
 
-  
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="boutik.html">Boutik</a></li>
+      <li><a href="contact.html">Kontak</a></li>
+    </ul>
+  </nav>
 
+  <!-- Hero Section -->
   <section class="hero">
     <h1>🎉 Bienvenue sur la plateforme Ralph Xpert</h1>
     <p>
@@ -78,44 +119,49 @@
     </p>
   </section>
 
-<nav>
-  <ul class="nav-buttons">
-    <li><a href="accueil.html">Accueil</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="boutik.html">Boutik</a></li>
-    <li><a href="contact.html">Kontak</a></li>
-  </ul>
-</nav>
-<style>
-  .nav-buttons {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    padding: 0;
-    margin-bottom: 40px;
-  }
-.nav-buttons li a {
-    display: inline-block;
-    padding: 10px 25px;
-    background-color: #00cc66;
-    color: #111;
-    font-weight: 700;
-    border-radius: 30px;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 204, 102, 0.6);
-  }
- .nav-buttons li a:hover,
-  .nav-buttons li a:focus {
-    background-color: #009944;
-    color: #eee;
-    box-shadow: 0 6px 12px rgba(0, 153, 68, 0.8);
-  }
-</style>
+  <!-- À propos -->
+  <section>
+    <h2>À propos de Ralph Xpert</h2>
+    <p>
+      Nous croyons en la puissance de l'authenticité, du branding personnel et du marketing intelligent.
+      Grâce à nos services, tu peux te démarquer, inspirer et atteindre un public plus large.
+    </p>
+  </section>
 
-  
+  <!-- Services -->
+  <section>
+    <h2>Nos Services</h2>
+    <ul>
+      <li>📸 Création de portfolio personnalisé</li>
+      <li>🛍️ Mise en place de boutique en ligne</li>
+      <li>📊 Coaching et stratégie réseaux sociaux</li>
+      <li>🎨 Design et branding personnel</li>
+    </ul>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <h2>Questions Fréquemment Posées</h2>
+    <h4>📌 Qui peut utiliser cette plateforme ?</h4>
+    <p>Tout le monde, que tu sois créateur, artiste, entrepreneur ou simple passionné.</p>
+
+    <h4>📌 Est-ce gratuit ?</h4>
+    <p>Certains services sont gratuits. Des options premium sont aussi disponibles pour aller plus loin.</p>
+  </section>
+
+  <!-- Appel à l'action -->
+  <section style="text-align: center;">
+    <h2>🚀 Prêt à transformer ta présence en ligne ?</h2>
+    <a href="contact.html" class="btn">Contactez-nous dès aujourd'hui</a>
+  </section>
+
+  <!-- Scroll to top -->
+  <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    style="position: fixed; bottom: 30px; right: 30px; background-color: #00cc66; color: #111; padding: 10px 15px; border: none; border-radius: 50px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); font-weight: bold;">
+    ⬆️
+  </button>
+
+  <!-- Footer -->
   <footer>
     <p>© 2025 Ralph Xpert. Tous droits réservés.</p>
     <p>
