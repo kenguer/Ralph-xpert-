@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - Ralph Xpert</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #121212;
+      color: #eee;
+      padding: 70px 20px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 0;
+      margin-bottom: 40px;
+    }
+    nav ul li a {
+      color: #00cc66;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+    h1 {
+      text-align: center;
+      color: #00cc66;
+      margin-bottom: 40px;
+    }
+    form {
+      background: #1c1c1c;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #aaffaa;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: none;
+      background: #222;
+      color: #eee;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+    }
+    button {
+      background: #00cc66;
+      border: none;
+      color: #111;
+      font-weight: 700;
+      padding: 12px 30px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      transition: background 0.3s ease;
+      width: 100%;
+    }
+    button:hover {
+      background: #009944;
+      color: #eee;
+    }
+    footer {
+      background: #111;
+      color: #aaa;
+      padding: 20px 30px;
+      text-align: center;
+      border-top: 1px solid #00cc66;
+      font-size: 0.9rem;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="accueil.html">Accueil</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="boutik.html">Boutik</a></li>
+      <li><a href="contact.html">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <h1>Kontak</h1>
+
+  <form action="#" method="post">
+    <label for="name">Non ou</label>
+    <input type="text" id="name" name="name" required placeholder="Antre non ou" />
+
+    <label for="email">Imel ou</label>
+    <input type="email" id="email" name="email" required placeholder="Antre imel ou" />
+
+    <label for="message">Mesaj ou</label>
+    <textarea id="message" name="message" rows="5" required placeholder="Ekri mesaj ou"></textarea>
+
+    <button type="submit">Voye</button>
+  </form>
+
+  <footer>
+    <p>© 2025 Ralph Xpert. Tous droits réservés.</p>
+    <p>
+      <a href="#">Conditions d'utilisation</a> | 
+      <a href="#">Politique de confidentialité</a> | 
+      <a href="#">Aide</a>
+    </p>
+    <p>Conçu avec ❤️ par Ralph Xpert</p>
+  </footer>
+
+</body>
+</html>
