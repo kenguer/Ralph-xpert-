@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Admin Panel - Ralph Xpert</title>
+<style>
+  body {
+    background: #121212;
+    color: #eee;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+  h1, h2 {
+    color: #00cc66;
+  }
+  section {
+    margin-bottom: 50px;
+  }
+  label {
+    display: block;
+    margin: 12px 0 5px;
+  }
+  input[type="text"], textarea, input[type="number"] {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    background: #222;
+    color: #eee;
+  }
+  button {
+    background: #00cc66;
+    border: none;
+    color: #111;
+    padding: 12px 25px;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s ease;
+  }
+  button:hover {
+    background: #009944;
+    color: #fff;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+  }
+  ul li {
+    background: #1c1c1c;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  ul li div.content {
+    max-width: 80%;
+  }
+  ul li button.delete-btn {
+    background: #ff4444;
+    padding: 6px 12px;
+    font-weight: 600;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+  }
+  .tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  .tabs button {
+    background: #222;
+    color: #eee;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+  .tabs button.active {
+    background: #00cc66;
+    color: #111;
+    box-shadow: 0 4px 8px rgba(0,204,102,0.6);
+  }
+  .hidden {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<h1>Admin Panel - Ralph Xpert</h1>
+
+<div class="tabs">
+  <button id="tab-faq" class="active" onclick="showTab('faq')">FAQ</button>
+  <button id="tab-portfolio" onclick="showTab('portfolio')">Portfolio</button>
+  <button id="tab-boutik" onclick="showTab('boutik')">Boutik</button>
+</div>
+
+<!-- FAQ Admin -->
+<section id="faq" >
+  <h2>Gérer les Questions FAQ</h2>
+  <label for="faq-question">Question</label>
+  <input type="text" id="faq-question" placeholder="Écrire la question ici..." />
+  <label for="faq-answer">Réponse</label>
+  <textarea id="faq-answer" rows="4" placeholder="Écrire la réponse ici..."></textarea>
+  <button onclick="addFaq()">Ajouter Question</button>
+
+  <ul id="faq-list"></ul>
+</section>
+
+<!-- Portfolio Admin -->
+<section id="portfolio" class="hidden">
+  <h2>Gérer Portfolio</h2>
+  <label for="portfolio-title">Titre</label>
+  <input type="text" id="portfolio-title" placeholder="Titre du projet" />
+  <label for="portfolio-desc">Description</label>
+  <textarea id="portfolio-desc" rows="3" placeholder="Description du projet"></textarea>
+  <button onclick="addPortfolio()">Ajouter Projet</button>
+
+  <ul id="portfolio-list"></ul>
+</section>
+
+<!-- Boutik Admin -->
+<section id="boutik" class="hidden">
+  <h2>Gérer Produits Boutik</h2>
+  <label for="boutik-title">Nom du produit</label>
+  <input type="text" id="boutik-title" placeholder="Nom du produit" />
+  <label for="boutik-price">Prix (en €)</label>
+  <input type="number" id="boutik-price" placeholder="Prix" min="0" step="0.01" />
+  <button onclick="addBoutik()">Ajouter Produit</button>
+
+  <ul id="boutik-list"></ul>
+</section>
+
+<script>
+  // Gestion des onglets
+  function showTab(tab) {
+    ['faq', 'portfolio', 'boutik'].forEach(id => {
+      document.getElementById(id).classList.add('hidden');
+      document.getElementById('tab-' + id).classList.remove('active');
+    });
+    document.getElementById(tab).classList.remove('hidden');
+    document.getElementById('tab-' + tab).classList.add('active');
+  }
+
+  // ======== FAQ ========
+  const faqListEl = document.getElementById('faq-list');
+  let faqs = JSON.parse(localStorage.getItem('faqs')) || [];
+
+  function renderFaqs() {
+    faqListEl.innerHTML = '';
+    faqs.forEach((faq, i) => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <div class="content">
+          <strong>Q: </strong>${faq.question}<br/>
+          <small><strong>R: </strong>${faq.answer}</small>
+        </div>
+        <button class="delete-btn" onclick="deleteFaq(${i})">Supprimer</button>
+      `;
+      faqListEl.appendChild(li);
+    });
+  }
+
+  function addFaq() {
+    const question = document.getElementById('faq-question').value.trim();
+    const answer = document.getElementById('faq-answer').value.trim();
+    if (!question || !answer) {
+      alert("Merci de remplir la question et la réponse.");
+      return;
+    }
+    faqs.push({ question, answer });
+    localStorage.setItem('faqs', JSON.stringify(faqs));
+    document.getElementById('faq-question').value = '';
+    document.getElementById('faq-answer').value = '';
+    renderFaqs();
+  }
+
+  function deleteFaq(i) {
+    faqs.splice(i, 1);
+    localStorage.setItem('faqs', JSON.stringify(faqs));
+    renderFaqs();
+  }
+
+  // ======== Portfolio ========
+  const portfolioListEl = document.getElementById('portfolio-list');
+  let portfolios = JSON.parse(localStorage.getItem('portfolios')) || [];
+
+  function renderPortfolios() {
+    portfolioListEl.innerHTML = '';
+    portfolios.forEach((p, i) => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <div class="content">
+          <strong>${p.title}</strong><br/>
+          <small>${p.description}</small>
+        </div>
+        <button class="delete-btn" onclick="deletePortfolio(${i})">Supprimer</button>
+      `;
+      portfolioListEl.appendChild(li);
+    });
+  }
+
+  function addPortfolio() {
+    const title = document.getElementById('portfolio-title').value.trim();
+    const description = document.getElementById('portfolio-desc').value.trim();
+    if (!title || !description) {
+      alert("Merci de remplir le titre et la description.");
+      return;
+    }
+    portfolios.push({ title, description });
+    localStorage.setItem('portfolios', JSON.stringify(portfolios));
+    document.getElementById('portfolio-title').value = '';
+    document.getElementById('portfolio-desc').value = '';
+    renderPortfolios();
+  }
+
+  function deletePortfolio(i) {
+    portfolios.splice(i, 1);
+    localStorage.setItem('portfolios', JSON.stringify(portfolios));
+    renderPortfolios();
+  }
+
+  // ======== Boutik ========
+  const boutikListEl = document.getElementById('boutik-list');
+  let boutiks = JSON.parse(localStorage.getItem('boutiks')) || [];
+
+  function renderBoutiks() {
+    boutikListEl.innerHTML = '';
+    boutiks.forEach((b, i) => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <div class="content">
+          <strong>${b.name}</strong><br/>
+          <small>Prix: €${parseFloat(b.price).toFixed(2)}</small>
+        </div>
+        <button class="delete-btn" onclick="deleteBoutik(${i})">Supprimer</button>
+      `;
+      boutikListEl.appendChild(li);
+    });
+  }
+
+  function addBoutik() {
+    const name = document.getElementById('boutik-title').value.trim();
+    const price = document.getElementById('boutik-price').value.trim();
+    if (!name || price === '') {
+      alert("Merci de remplir le nom et le prix.");
+      return;
+    }
+    if (isNaN(price) || parshteFloat(price) < 0) {
+      alert("Prix invalide.");
+      return;
+    }
+    boutiks.push({ name, price: parseFloat(price).toFixed(2) });
+    localStorage.setItem('boutiks', JSON.stringify(boutiks));
+    document.getElementById('boutik-title').value = '';
+    document.getElementById('boutik-price').value = '';
+    renderBoutiks();
+  }
+
+  function deleteBoutik(i) {
+    boutiks.splice(i, 1);
+    localStorage.setItem('boutiks', JSON.stringify(boutiks));
+    renderBoutiks();
+  }
+
+  // Initial render
+  renderFaqs();
+  renderPortfolios();
+  renderBoutiks();
+</script>
+
+</body>
+</html>admin.
